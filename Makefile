@@ -1,6 +1,6 @@
 NAME    := automake
 SRC_EXT := xz
-SOURCE     http://ftp.gnu.org/gnu/$(NAME)/$(NAME)-$(VERSION).tar.$(SRC_EXT)
+SOURCE   = http://ftp.gnu.org/gnu/$(NAME)/$(NAME)-$(VERSION).tar.$(SRC_EXT)
 PATCHES  = automake-1.13.1-disable-tests.patch
 
 COMMON_RPM_ARGS := --define "%_topdir $$PWD/_topdir"
