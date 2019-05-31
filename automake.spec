@@ -1,19 +1,15 @@
-%global api_version 1.13
+%global api_version 1.16
 
 Summary:    A GNU tool for automatically creating Makefiles
 Name:       automake
-Version:    %{api_version}.4
-Release:    3%{?dist}
+Version:    %{api_version}.1
+Release:    1%{?dist}
 
 # docs ~> GFDL, sources ~> GPLv2+, mkinstalldirs ~> PD and install-sh ~> MIT
 License:    GPLv2+ and GFDL and Public Domain and MIT
 
 Group:      Development/Tools
 Source:     ftp://ftp.gnu.org/gnu/automake/automake-%{version}.tar.xz
-
-# Disable tests for broken vala installation
-# ~> downstream
-Patch0:     %{name}-1.13.1-disable-tests.patch
 
 URL:        http://www.gnu.org/software/automake/
 Requires:   autoconf >= 2.65
@@ -68,8 +64,6 @@ Makefiles.
 
 %prep
 %setup -q -n automake-%{version}
-%patch0 -p1 -b .disable_tests
-autoreconf -iv
 
 # Fedora only to add ppc64p7 (Power7 optimized) arch:
 perl -pi -e "s/ppc64-\*/ppc64-\* \| ppc64p7-\*/" lib/config.sub
@@ -109,6 +103,11 @@ fi
 %{_mandir}/man1/*
 
 %changelog
+* Fri May 31 2019 Brian J. Murrell <brian.murrell@intel.com> - 1.16.1-1
+- update to automake 1.16.1
+- drop test-fixing patch
+- don't run autoreconf in %prep
+
 * Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.13.4-3
 - Mass rebuild 2013-12-27
 
