@@ -9,7 +9,7 @@ Release:    1%{?dist}
 License:    GPLv2+ and GFDL and Public Domain and MIT
 
 Group:      Development/Tools
-Source:     ftp://ftp.gnu.org/gnu/automake/automake-%{version}.tar.xz
+Source:     https://ftp.gnu.org/gnu/automake/automake-%{version}.tar.xz
 
 URL:        http://www.gnu.org/software/automake/
 Requires:   autoconf >= 2.65
